@@ -6,6 +6,7 @@
   * It should be stateless.
   * Should have UnitTest.
   * Have a monitoring view (read more about actuator).
+  * Create API documentation ( try to use 'Swagger' )
   
 * Good to Have: 
   * It can easily change DB without adjustment on the code.
@@ -17,6 +18,7 @@
   * How to setup DB.
   * How to implement authentication using JWT. 
   * How to properly setup a monitoring for the application.
+  * H
 
 * TODO
   * Setup Base Spring Application.
