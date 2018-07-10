@@ -33,17 +33,15 @@ public class SandboxSpringBootAppApplicationTests {
 	@Autowired
 	private MockMvc mvc;
 
-	@MockBean
+	@Autowired
 	private UserService userService;
 
 	@Test
 	public void givenUsers_whenGetUsers_thenReturnJsonArray() throws Exception {
 
+		// add user to db via service 
 		User user = new User("controller.test@yopmail.com", "John", "Doe");
-
-		List<User> users = Arrays.asList(user);
-
-		given(userService.getAllUsers()).willReturn(users);
+		userService.addUser(user);
 
 		mvc.perform(get("/api/users").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(1))).andExpect(jsonPath("$[0].username", is(user.getUsername())));
