@@ -47,7 +47,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
-		<!-- APACHE derby -->
+		<!-- Test DB -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
