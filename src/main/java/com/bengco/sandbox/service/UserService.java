@@ -1,54 +1,29 @@
 package com.bengco.sandbox.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.bengco.sandbox.model.User;
-import com.bengco.sandbox.repository.UserRepository;
 
 @Service
-public class UserService {
+public interface UserService {
 
-	@Autowired
-	private UserRepository userRepository;
+	List<User> getAllUsers();
+	
+	List<User> getAllUsers(Pageable pageable);
 
-	/**
-	 * 
-	 * @return
-	 */
-	public List<User> getAllUsers() {
-		List<User> users = new ArrayList<>();
-		userRepository.findAll().forEach(users::add);
-		return users;
-	}
-	
-	/**
-	 * 
-	 * @param user
-	 * @return
-	 */
-	public User addUser(User user) {
-		return userRepository.save(user);
-	}
-	
-	/**
-	 * 
-	 * @param user
-	 * @return
-	 */
-	public User updateUser(User user) {
-		return userRepository.save(user);
-	}
-	
-	/**
-	 * 
-	 * @param id
-	 */
-	public void deleteUser(Integer id) throws IllegalArgumentException{
-		userRepository.delete(id);
-	}
+	User getUserById(Integer id);
+
+	User getUserByUsername(String username);
+
+	User getUserByFirstname(String firstname);
+
+	User addUser(User user);
+
+	User updateUser(User user);
+
+	void deleteUser(Integer id) throws IllegalArgumentException;
 
 }

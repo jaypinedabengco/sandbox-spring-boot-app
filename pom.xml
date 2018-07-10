@@ -49,9 +49,9 @@
 
 		<!-- APACHE derby -->
 		<dependency>
-			<groupId>org.apache.derby</groupId>
-			<artifactId>derby</artifactId>
-			<scope>runtime</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- Swagger -->
@@ -68,7 +68,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!--  Unit Testing -->
+		<!-- Unit Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

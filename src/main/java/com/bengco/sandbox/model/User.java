@@ -29,6 +29,14 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
+	
+	public User(String username, String firstname, String lastname) {
+		super();
+		this.username = username;
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+	
 
 	public Integer getId() {
 		return id;
