@@ -10,7 +10,7 @@ import com.bengco.sandbox.model.User;
 @Service
 public interface UserService {
 
-	List<User> getAllUsers();
+	List<User> getAllUsers(int page, int size);
 	
 	List<User> getAllUsers(Pageable pageable);
 

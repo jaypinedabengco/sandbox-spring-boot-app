@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bengco.sandbox.model.User;
@@ -23,9 +24,9 @@ public class UserController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.GET, value = "/users")
-	public List<User> getUsers() {
-		return userService.getAllUsers();
+	@RequestMapping(method = RequestMethod.GET, params = {"page", "size"},  value = "/users")
+	public List<User> getUsers(@RequestParam int page, @RequestParam int size) {
+		return userService.getAllUsers(page, size);
 	}
 
 	/**

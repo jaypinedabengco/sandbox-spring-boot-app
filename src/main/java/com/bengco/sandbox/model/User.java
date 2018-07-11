@@ -1,13 +1,23 @@
 package com.bengco.sandbox.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class User implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1049335152572427205L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +29,9 @@ public class User {
 	private String firstname;
 	private String lastname;
 
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+	private UserAuthentication userAuthentication;
+
 	public User() {
 	}
 
@@ -29,14 +42,13 @@ public class User {
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
-	
+
 	public User(String username, String firstname, String lastname) {
 		super();
 		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
-	
 
 	public Integer getId() {
 		return id;
@@ -68,6 +80,14 @@ public class User {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	public UserAuthentication getUserAuthentication() {
+		return userAuthentication;
+	}
+
+	public void setUserAuthentication(UserAuthentication userAuthentication) {
+		this.userAuthentication = userAuthentication;
 	}
 
 }

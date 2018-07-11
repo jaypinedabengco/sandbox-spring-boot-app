@@ -35,14 +35,18 @@ public class UserControllerTest {
 	@Test
 	public void givenUsers_whenGetUsers_thenReturnJsonArray() throws Exception{
 		
+		// Mock Service Layers response
 		User user = new User("controller.test@yopmail.com", "John", "Doe");
-		
 		List<User> users = Arrays.asList(user);
+		int page = 0;
+		int size = 10;
+		given(userService.getAllUsers(page, size)).willReturn(users);
 		
-		given(userService.getAllUsers()).willReturn(users);
-		
+		// Do call on API
 		mvc.perform(get("/api/users")
-				.contentType(MediaType.APPLICATION_JSON))
+				.contentType(MediaType.APPLICATION_JSON)
+				.param("page", page + "")
+				.param("size", size + ""))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$", hasSize(1)))
 				.andExpect(jsonPath("$[0].username", is(user.getUsername())));		

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -55,9 +56,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getAllUsers() {
+	public List<User> getAllUsers(int page, int size) {
 		List<User> users = new ArrayList<>();
-		userRepository.findAll().forEach(users::add);
+		userRepository.findAll(new PageRequest(page, size)).forEach(users::add);
 		return users;
 	}
 }
