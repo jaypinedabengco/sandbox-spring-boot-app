@@ -1,6 +1,7 @@
 * Create an application that: 
   * Provides a public and authentication required RESTful APIs.
   * Provides a UI that lets you sign up & login. 
+  * Integrate Spring Cloud Config for configuration.
   * UI should be created using either ReactJS or VueJS.
   * UI should also use template engines like pug and sass.
   * It should be stateless.
