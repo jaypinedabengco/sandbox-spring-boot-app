@@ -22,6 +22,6 @@
   * H
 
 * TODO
-  * Setup Base Spring Application.
+  * ~~Setup Base Spring Application.~~
 
   
