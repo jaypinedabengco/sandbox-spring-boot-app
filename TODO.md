@@ -19,9 +19,26 @@
   * How to setup DB.
   * How to implement authentication using JWT. 
   * How to properly setup a monitoring for the application.
-  * H
 
 * TODO
   * ~~Setup Base Spring Application.~~
+  * Add Unit Testing.
+  * Add Authentication.
+  * Use JWT for stateless authentication.
+  * Integrate Spring Cloud Config for configuration.
+  * Create Base User Create & Login API.
+  * Create sample get basic restricted APIs.
+  * Add role to User. 
+  * Create role specific restricted APIs.
+  * Create Automated testing for API.
+  * Add UI.
+   * Create React UI.
+   * Create Angular v.X UI (to check what to use)
+  * Integrate Login & Create User API to UI. 
+  * Integrate Restricted Pages to UI.
+  * Create Automated Testing for UI.
+  * Find a way to deploy Application.
+   * Find a way to integrate CI/CD to Application.
+  
 
   
